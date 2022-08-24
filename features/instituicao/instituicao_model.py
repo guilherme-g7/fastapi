@@ -1,11 +1,10 @@
 from pydantic import BaseModel
-from typing import List
 
 from db.database import Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
-from ..campus.campus_model import Campus, CampusCreate
+from features.campus.campus_model import CampusModel
 
 
 class InstituicaoModel(Base):
@@ -20,24 +19,4 @@ class InstituicaoModel(Base):
 
     campus = relationship("CampusModel", back_populates="instituicao")
 
-
-class InstituicaoBase(BaseModel):
-    cnpj: str
-    razao_social: str
-    fantasia: str
-    email: str
-    cod_mec: str
-    telefone: str
-
-
-class InstituicaoCreate(InstituicaoBase):
-    campus: List[Campus]
-
-
-class Instituicao(InstituicaoBase):
-    id: int
-    campus: List[Campus] = []
-
-    class Config:
-        orm_mode = True
 

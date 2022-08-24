@@ -1,6 +1,7 @@
 from typing import List, Any
 
-from .instituicao_model import Instituicao, InstituicaoModel, InstituicaoCreate
+from .instituicao_model import InstituicaoModel
+from .instituicao_schema import Instituicao, InstituicaoCreate
 from sqlalchemy.orm import Session
 
 instituicaoModel = InstituicaoModel

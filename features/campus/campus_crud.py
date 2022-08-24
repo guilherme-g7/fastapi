@@ -1,10 +1,11 @@
 from typing import List, Any
 
-from .campus_model import Campus, CampusCreate, CampusModel
+from .campus_model import CampusModel
 from sqlalchemy.orm import Session
 
+from .campus_schema import CampusCreate
 
-campusModel = CampusModel()
+campusModel = CampusModel
 
 
 def create_campus(db: Session, campus: CampusCreate):

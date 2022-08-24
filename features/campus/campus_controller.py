@@ -15,12 +15,12 @@ from .campus_crud import(
     find_one_campus
 )
 
-from .campus_model import CampusCreate, CampusModel
+from .campus_schema import CampusCreate
 
 router = APIRouter()
 
 
-@router.get("/", status_code=status.HTTP_200_OK)
+@router.get("/campus", status_code=status.HTTP_200_OK)
 def get_all_campus(db: Session = Depends(get_db)) -> List[Any]:
     if result := find_all_campus(db):
         return result
@@ -31,7 +31,7 @@ def get_all_campus(db: Session = Depends(get_db)) -> List[Any]:
     )
 
 
-@router.post("/", status_code=status.HTTP_201_CREATED)
+@router.post("/new_campus", status_code=status.HTTP_201_CREATED)
 def post_campus(campus: CampusCreate, db: Session = Depends(get_db),
                 ) -> Dict[str, Union[float, int, str]]:
     if result := create_campus(db, campus):

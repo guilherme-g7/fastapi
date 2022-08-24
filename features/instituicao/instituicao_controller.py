@@ -15,7 +15,7 @@ from .instituicao_crud import (
     find_one_instituicao
 )
 
-from .instituicao_model import InstituicaoCreate, Instituicao
+from .instituicao_schema import InstituicaoCreate, Instituicao
 
 router = APIRouter()
 

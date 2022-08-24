@@ -1,7 +1,10 @@
+from typing import List
+
 from pydantic import BaseModel
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from db.database import Base
+from features.curso.curso_model import CursoModel
 
 
 class CampusModel(Base):
@@ -14,23 +17,8 @@ class CampusModel(Base):
     id_origem = Column(Integer)
 
     instituicao = relationship("InstituicaoModel", back_populates="campus")
+    cursos = relationship('CursoModel', back_populates="campus")
+    calendarios_academicos = relationship('CalendarioAcademico', back_populates='campus')
 
 
-class CampusBase(BaseModel):
-    nome: str
-    endereco: str
-    email: str
-    id_origem: int
-
-
-class CampusCreate(CampusBase):
-    pass
-
-
-class Campus(CampusBase):
-    id: int
-    id_instituicao: int
-
-    class Config:
-        orm_mode = True
 
