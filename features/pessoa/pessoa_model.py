@@ -17,3 +17,4 @@ class PessoaModel(Base):
 
     cursos = relationship('CursoModel', back_populates="pessoa")
     alunos_cursos = relationship('AlunoCursoModel', back_populates="pessoa")
+    dis_professores = relationship('DisciplinaProfessorModel', back_populates="pessoa")

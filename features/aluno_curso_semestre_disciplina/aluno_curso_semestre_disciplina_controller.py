@@ -21,7 +21,7 @@ router = APIRouter()
 
 
 @router.get("/alunos_cursos_semestres_disciplinas", status_code=status.HTTP_200_OK)
-def get_all_aluno_curso_semestres(db: Session = Depends(get_db)) -> List[Any]:
+def get_all_aluno_curso_semestres_discip(db: Session = Depends(get_db)) -> List[Any]:
     if result := find_all_aluno_curso_semestre_disciplina(db):
         return result
 
@@ -32,7 +32,7 @@ def get_all_aluno_curso_semestres(db: Session = Depends(get_db)) -> List[Any]:
 
 
 @router.post("/new_alu_cur_sem_discip", status_code=status.HTTP_201_CREATED)
-def post_campus(aluno_curso_semestre_discip: AlunoCursoSemestreDisciplinaCreate, db: Session = Depends(get_db),
+def post_alu_cur_sem_discip(aluno_curso_semestre_discip: AlunoCursoSemestreDisciplinaCreate, db: Session = Depends(get_db),
                 ) -> Dict[str, Union[float, int, str]]:
     if result := create_aluno_curso_semestre_disciplina(db, aluno_curso_semestre_discip):
         return result

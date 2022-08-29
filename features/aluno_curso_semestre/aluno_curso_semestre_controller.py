@@ -32,7 +32,7 @@ def get_all_aluno_curso_semestres(db: Session = Depends(get_db)) -> List[Any]:
 
 
 @router.post("/new_aluno_curso_semestre", status_code=status.HTTP_201_CREATED)
-def post_campus(aluno_curso_semestre: AlunoCursoSemestreCreate, db: Session = Depends(get_db),
+def post_alu_cur_semestre(aluno_curso_semestre: AlunoCursoSemestreCreate, db: Session = Depends(get_db),
                 ) -> Dict[str, Union[float, int, str]]:
     if result := create_aluno_curso_semestre(db, aluno_curso_semestre):
         return result

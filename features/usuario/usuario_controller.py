@@ -9,32 +9,32 @@ from fastapi.exceptions import HTTPException
 
 from db.database import get_db
 
-from .pessoa_crud import(
-    create_pessoa,
-    find_all_pessoa,
-    find_one_pessoa
+from .usuario_crud import(
+    create_usuario,
+    find_all_usuario,
+    find_one_usuario
 )
 
-from .pessoa_schema import PessoaCreate
+from .usuario_schema import UsuarioCreate
 
 router = APIRouter()
 
 
-@router.get("/pessoas", status_code=status.HTTP_200_OK)
-def get_all_pessoas(db: Session = Depends(get_db)) -> List[Any]:
-    if result := find_all_pessoa(db):
+@router.get("/usuarios", status_code=status.HTTP_200_OK)
+def get_all_usuarios(db: Session = Depends(get_db)) -> List[Any]:
+    if result := find_all_usuario(db):
         return result
 
     raise HTTPException(
         status_code=status.HTTP_400_BAD_REQUEST,
-        detail="Não existe pessoas cadastradas!",
+        detail="Não existe usuários cadastrados!",
     )
 
 
-@router.post("/new_pessoa", status_code=status.HTTP_201_CREATED)
-def post_pessoa(pessoa: PessoaCreate, db: Session = Depends(get_db),
+@router.post("/new_usuario", status_code=status.HTTP_201_CREATED)
+def post_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db),
                 ) -> Dict[str, Union[float, int, str]]:
-    if result := create_pessoa(db, pessoa):
+    if result := create_usuario(db, usuario):
         return result
 
     raise HTTPException(

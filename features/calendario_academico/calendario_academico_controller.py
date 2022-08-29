@@ -21,7 +21,7 @@ router = APIRouter()
 
 
 @router.get("/calendarios_academicos", status_code=status.HTTP_200_OK)
-def get_all_campus(db: Session = Depends(get_db)) -> List[Any]:
+def get_all_calendario_academico(db: Session = Depends(get_db)) -> List[Any]:
     if result := find_all_calendario_academico(db):
         return result
 
@@ -32,7 +32,7 @@ def get_all_campus(db: Session = Depends(get_db)) -> List[Any]:
 
 
 @router.post("/new_calendario_academico", status_code=status.HTTP_201_CREATED)
-def post_campus(calendario_academico: CalendarioAcademicoCreate, db: Session = Depends(get_db),
+def post_calendario_academico(calendario_academico: CalendarioAcademicoCreate, db: Session = Depends(get_db),
                 ) -> Dict[str, Union[float, int, str]]:
     if result := create_calendario_academico(db, calendario_academico):
         return result
