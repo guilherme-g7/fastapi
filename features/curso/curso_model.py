@@ -23,3 +23,5 @@ class CursoModel(Base):
     calendarios_academicos = relationship('CalendarioAcademicoModel', back_populates='curso')
     alunos_cursos = relationship('AlunoCursoModel', back_populates='curso')
     disciplinas = relationship('DisciplinaModel', back_populates='curso')
+    notificacoes = relationship('NotificacaoModel', back_populates='curso')
+    

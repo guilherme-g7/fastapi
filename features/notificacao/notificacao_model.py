@@ -14,3 +14,4 @@ class NotificacaoModel(Base):
     campus = relationship('CampusModel', back_populates='notificacoes')
     curso = relationship('CursoModel', back_populates='notificacoes')
     disciplina = relationship('DisciplinaModel', back_populates='notificacoes')
+    notificacoes_pessoas = relationship('NotificacaoPessoaModel', back_populates='notificacao')

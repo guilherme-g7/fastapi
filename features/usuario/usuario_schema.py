@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from features.permissao.permissao_schema import Permissao
+from features.usuario_permissao.usuario_permissao_schema import UsuarioPermissao
 
 
 class UsuarioBase(BaseModel):
@@ -16,7 +16,7 @@ class Usuario(UsuarioBase):
     id: int
     id_instituicao: int
     id_pessoa: int
-    permissoes: list[Permissao]
+    permissoes: list[UsuarioPermissao]
 
     class Config:
         orm_mode = True

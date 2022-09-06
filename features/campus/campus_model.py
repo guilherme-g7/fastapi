@@ -18,7 +18,8 @@ class CampusModel(Base):
 
     instituicao = relationship("InstituicaoModel", back_populates="campus")
     cursos = relationship('CursoModel', back_populates="campus")
-    calendarios_academicos = relationship('CalendarioAcademico', back_populates='campus')
+    calendarios_academicos = relationship('CalendarioAcademicoModel', back_populates='campus')
+    notificacoes = relationship('NotificacaoModel', back_populates='campus')
 
 
 

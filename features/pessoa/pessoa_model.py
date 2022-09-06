@@ -16,5 +16,8 @@ class PessoaModel(Base):
     id_origem = Column(Integer)
 
     cursos = relationship('CursoModel', back_populates="pessoa")
+    usuario = relationship('UsuarioModel', back_populates="pessoa")
     alunos_cursos = relationship('AlunoCursoModel', back_populates="pessoa")
     dis_professores = relationship('DisciplinaProfessorModel', back_populates="pessoa")
+    notificacoes_pessoas = relationship('NotificacaoPessoaModel', back_populates='pessoa')
+    notificacoes_pesssoas_configs = relationship('NotificacaoPessoaConfigModel', back_populates='pessoa')

@@ -9,6 +9,6 @@ class PermissaoModel(Base):
     nome = Column(String(500))
     id_origem = Column(Integer)
 
-    usuarios = relationship("UsuarioModel", secondary="usuarios_permissoes", back_populates='permissoes')
+    usuarios_permissoes = relationship("UsuarioPermissaoModel", back_populates='permissao')
 
 

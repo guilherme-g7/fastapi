@@ -15,3 +15,5 @@ class DisciplinaModel(Base):
     curso = relationship('CursoModel', back_populates='disciplinas')
     dis_horarios = relationship('DisciplinaHorarioModel', back_populates='disciplina')
     dis_professores = relationship('DisciplinaProfessorModel', back_populates='disciplina')
+    alu_cur_sem_disciplinas = relationship('AlunoCursoSemestreDisciplinaModel', back_populates='disciplina')
+    notificacoes = relationship('NotificacaoModel', back_populates='disciplina')

@@ -1,5 +1,7 @@
+from json import JSONEncoder
+
 from pydantic import BaseModel
-from features.campus.campus_schema import Campus
+from features.campus.campus_schema import Campus, CampusCreate
 
 
 class InstituicaoBase(BaseModel):
@@ -12,7 +14,7 @@ class InstituicaoBase(BaseModel):
 
 
 class InstituicaoCreate(InstituicaoBase):
-    campus: list[Campus]
+    pass
 
 
 class Instituicao(InstituicaoBase):
@@ -21,3 +23,4 @@ class Instituicao(InstituicaoBase):
 
     class Config:
         orm_mode = True
+

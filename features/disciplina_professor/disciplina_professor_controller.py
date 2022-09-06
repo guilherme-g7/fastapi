@@ -11,8 +11,8 @@ from db.database import get_db
 
 from .disciplina_professor_crud import(
     create_dis_professor,
-    find_all_dis_horarios,
-    find_one_dis_horario
+    find_all_dis_professores,
+    find_one_dis_professor
 )
 
 from .disciplina_professor_schema import DisciplinaProfessorCreate
@@ -21,8 +21,8 @@ router = APIRouter()
 
 
 @router.get("/disciplinas_professores", status_code=status.HTTP_200_OK)
-def get_all_disciplinas(db: Session = Depends(get_db)) -> List[Any]:
-    if result := find_all_dis_horarios(db):
+def get_all_dis_professores(db: Session = Depends(get_db)) -> List[Any]:
+    if result := find_all_dis_professores(db):
         return result
 
     raise HTTPException(

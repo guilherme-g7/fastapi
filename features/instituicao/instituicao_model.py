@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from db.database import Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
+import inspect
 
 from features.campus.campus_model import CampusModel
 
@@ -18,5 +19,5 @@ class InstituicaoModel(Base):
     telefone = Column(String(20))
 
     campus = relationship("CampusModel", back_populates="instituicao")
-
+    usuarios = relationship("UsuarioModel", back_populates="instituicao")
 
